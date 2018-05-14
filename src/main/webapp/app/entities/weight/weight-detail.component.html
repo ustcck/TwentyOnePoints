@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="weight">
+            <h2><span jhiTranslate="twentyOnePointsApp.weight.detail.title">Weight</span> {{weight.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="twentyOnePointsApp.weight.datetime">Datetime</span></dt>
+                <dd>
+                    <span>{{weight.datetime}}</span>
+                </dd>
+                <dt><span jhiTranslate="twentyOnePointsApp.weight.weigth">Weigth</span></dt>
+                <dd>
+                    <span>{{weight.weigth}}</span>
+                </dd>
+                <dt><span jhiTranslate="twentyOnePointsApp.weight.user">User</span></dt>
+                <dd>
+                    {{weight.user?.login}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/weight', weight.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
